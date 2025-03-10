@@ -1,1 +1,18 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --Inter: Inter-Variable;
+  --PressStart2P: PressStart2P;
+  --titleFontSize: 14px;
+  --titleFontWeight: 700;
+  --textFontSize: 14px;
+  --textFontWeight: 400;
+  --mainColor: #000;
+  --cardColor: #fff;
+  --textStrokeColor: #fff;
+  --buttonTextColor: #fff;
+  --heartContourColor: #000;
+  --heartAnimationFillColor: #FF0000;
+  --backgroundImage: repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px), 
+                     repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+                     repeating-linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+}
