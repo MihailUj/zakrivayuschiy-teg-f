@@ -2,10 +2,16 @@
 :root {
   --Inter: Inter-Variable;
   --PressStart2P: PressStart2P;
-  --titleFontSize: 14px;
+  --titleFontSize: 18px;
   --titleFontWeight: 700;
-  --textFontSize: 14px;
+  --textFontSize: 18px;
   --textFontWeight: 400;
+  --imageLabelFontSize: 14px;
+  --imageLabelFontWeight: 400;
+  --buttonFontSize: 14px;
+  --buttonFontWeight: 400;
+  --dialogFontSize: 14px;
+  --dialogFontWeight: 400;
   --mainColor: #000;
   --cardColor: #fff;
   --textStrokeColor: #fff;

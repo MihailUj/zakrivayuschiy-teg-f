@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
   margin-block: 100px;
   font-family: var(--Inter, sans-serif);
   background-image: var(--backgroundImage);
@@ -58,8 +57,8 @@
 .button__text {
   color: var(--buttonTextColor);
   font-family: var(--PressStart2P);
-  font-weight: var(--textFontWeight);
-  font-size: 14px;
+  font-weight: var(--buttonFontWeight);
+  font-size: var(--buttonFontSize);
   line-height: 90%;
   mix-blend-mode: difference;
   text-wrap: nowrap;
@@ -75,6 +74,7 @@
   background-color: var(--cardColor);
   inline-size: clamp(23.438rem, 8.929rem + 38.69vw, 43.75rem);
   block-size: clamp(20.438rem, 18.607rem + 4.881vw, 23rem);
+  margin-block-end: 100px;
 }
 
 .header__title,
@@ -114,6 +114,10 @@
   font-weight: var(--titleFontWeight);
   font-size: var(--titleFontSize);
   line-height: 100%;
+  padding: 3px 10px;
+  min-block-size: 33px;
+  display: flex;
+  align-items: center;
 }
 
 .card__image {
@@ -123,7 +127,11 @@
 }
 
 .image {
-  inline-size: 100%;
+  inline-size: clamp(23.188rem, 8.679rem + 38.69vw, 43.5rem);
+  block-size: clamp(23.188rem, 8.679rem + 38.69vw, 43.5rem);
+  object-fit: cover;
+  object-position: right;
+  
 }
 
 .image-label {
@@ -133,8 +141,8 @@
   opacity: 50%;
   color: var(--mainColor);
   font-family: var(--PressStart2P);
-  font-weight: var(--textFontWeight);
-  font-size: var(--textFontSize);
+  font-weight: var(--imageLabelFontWeight);
+  font-size: var(--imageLabelFontSize);
   line-height: 100%;
   text-shadow: -1px 0px var(--textStrokeColor), 1px 0px var(--textStrokeColor),
     0px -1px var(--textStrokeColor), 0px 1px var(--textStrokeColor);
@@ -163,7 +171,7 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
   padding-inline: 25px;
 }
 
@@ -243,6 +251,10 @@
   inline-size: 130px;
 }
 
+.footer {
+  margin-block-start: 50px;
+}
+
 .save-button {
   display: flex;
   flex-direction: row;
@@ -285,8 +297,8 @@ body:has(.dialog[open]) {
   align-items: center;
   gap: 20px;
   font-family: var(--PressStart2P);
-  font-weight: var(--textFontWeight);
-  font-size: var(--textFontSize);
+  font-weight: var(--dialogFontWeight);
+  font-size: var(--dialogFontSize);
   line-height: 150%;
   text-transform: uppercase;
 }
