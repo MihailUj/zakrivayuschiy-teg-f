@@ -15,7 +15,8 @@
   flex-direction: column;
   align-items: center;
   margin-block: 100px;
-  font-family: var(--Inter, sans-serif);
+  font-family: var(--main-font, sans-serif);
+  background-color: var(--cardColor);
   background-image: var(--backgroundImage);
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,7 +27,7 @@
 
 @supports (font-variation-settings: normal) {
   .page {
-    font-weight: var(--textFontWeight);
+    font-variation-settings: "wght" var(--textFontWeight);
   }
 }
 
@@ -36,27 +37,33 @@
   outline-offset: -2px;
   overflow: hidden;
   background-color: var(--cardColor);
+  transition: box-shadow 0.3s ease
 }
 
 .button:focus-visible {
   box-shadow: 2px 2px 0 var(--mainColor);
-  transition: 0.3s ease;
 }
 
-.button:hover::before {
+.button::before {
   content: "";
   position: absolute;
   top: 0px;
   left: 0px;
   background-color: var(--mainColor);
-  animation: button_color 0.5s ease-in-out;
   block-size: 100%;
   inline-size: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
 }
 
 .button__text {
   color: var(--buttonTextColor);
-  font-family: var(--PressStart2P);
+  font-family: var(--accent-font, fantasy);
   font-weight: var(--buttonFontWeight);
   font-size: var(--buttonFontSize);
   line-height: 90%;
@@ -79,7 +86,7 @@
 
 .header__title,
 .header__text {
-  font-family: var(--PressStart2P, sans-serif);
+  font-family: var(--accent-font, fantasy, sans-serif);
   font-weight: 400;
   line-height: 100%;
   text-transform: uppercase;
@@ -111,7 +118,7 @@
 
 .card__title {
   padding: 3px 10px;
-  font-weight: var(--titleFontWeight);
+  font-variation-settings: 'wght' var(--titleFontWeight);
   font-size: var(--titleFontSize);
   line-height: 100%;
   padding: 3px 10px;
@@ -140,7 +147,7 @@
   right: 25px;
   opacity: 50%;
   color: var(--mainColor);
-  font-family: var(--PressStart2P);
+  font-family: var(--accent-font, fantasy);
   font-weight: var(--imageLabelFontWeight);
   font-size: var(--imageLabelFontSize);
   line-height: 100%;
@@ -180,12 +187,12 @@
   padding: 0;
   background-color: transparent;
   block-size: 38px;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus-visible {
   border-color: var(--mainColor);
   outline: none;
-  transition: 0.3s ease;
 }
 
 .sparks {
@@ -194,65 +201,64 @@
 
 .core {
   fill: transparent;
-  transition: fill 0.3s ease 0.03s;
+  transition: fill 0.3s 0.03s linear;
 }
 
 .like-icon:hover .core {
   fill: var(--heartContourColor);
+  transition: fill 0.3s linear;
 }
 
 .like-icon:active .core {
   fill: var(--heartAnimationFillColor);
+  transition: fill 0.3s linear;
 }
 
 .main-body {
   fill: transparent;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--heartContourColor);
-  transition-delay: 0.05s;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:active .main-body {
   fill: var(--heartAnimationFillColor);
-  transition-delay: 0.05s;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon.is-liked .core {
   fill: var(--heartAnimationFillColor);
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--heartAnimationFillColor);
-  transition-delay: 0.05s;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--heartAnimationFillColor);
-  transition-delay: fill 0.3s ease 0.06s;
+  transition-delay: fill 0.3s 0.06s linear;
 }
 
 .like-icon.is-liked {
-  animation: heart-animation 0.3s ease-in 0.1s;
+  animation: heart-animation 0.3s 0.1s ease-in;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks-animation 0.3s ease-in 0.3s;
+  animation: sparks-animation 0.3s 0.3s  ease-in;
 }
 
-.like-icon:not(.is-liked) .contour {
-  transition: stroke 0.1s linear;
+.contour {
+  transition: fill 0.1s linear;
 }
 
 .card__like-button {
   block-size: 38px;
   inline-size: 130px;
-}
-
-.footer {
-  margin-block-start: 50px;
 }
 
 .save-button {
@@ -281,7 +287,7 @@
   padding: 30px;
   background-color: var(--cardColor);
   inline-size: 353px;
-  block-size: 191px;
+  gap: 30px;
 }
 
 .dialog::backdrop {
@@ -296,7 +302,7 @@ body:has(.dialog[open]) {
   display: flex;
   align-items: center;
   gap: 20px;
-  font-family: var(--PressStart2P);
+  font-family: var(--accent-font, fantasy);
   font-weight: var(--dialogFontWeight);
   font-size: var(--dialogFontSize);
   line-height: 150%;
@@ -315,31 +321,31 @@ body:has(.dialog[open]) {
   inline-size: 100%;
 }
 
-.card:nth-child(2) .image {
+.filter__blur {
   filter: blur(3px);
 }
 
-.card:nth-child(3) .image {
+.filter__brightness {
   filter: brightness(30%);
 }
 
-.card:nth-child(4) .image {
+.filter__contrast {
   filter: contrast(250%);
 }
 
-.card:nth-child(5) .image {
+.filter__grayscale {
   filter: grayscale(80%);
 }
 
-.card:nth-child(6) .image {
+.filter__hue-rotate {
   filter: hue-rotate(0.5turn);
 }
 
-.card:nth-child(7) .image {
+.filter__invert {
   filter: invert(100%);
 }
 
-.card:nth-child(8) .image {
+.filter__blur-sepia {
   filter: blur(3px) sepia(0.6);
 }
 
