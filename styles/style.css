@@ -355,4 +355,8 @@ body:has(.dialog[open]) {
   .floppy-icon {
     inline-size: 28px;
   }
+
+  .image-label {
+    right: 13px;
+  }
 }
